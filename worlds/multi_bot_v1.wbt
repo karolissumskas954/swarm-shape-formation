@@ -1,0 +1,415 @@
+#VRML_SIM R2023b utf8
+
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/Floor.proto"
+EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/appearances/protos/Parquetry.proto"
+
+WorldInfo {
+  basicTimeStep 4
+}
+Viewpoint {
+  orientation -0.16431903371206646 -0.08159743894342857 0.9830265068235984 4.049839221293114
+  position 0.12879755526363418 0.16839632590353704 0.07789215648771611
+}
+TexturedBackground {
+}
+TexturedBackgroundLight {
+}
+Floor {
+  size 1 1
+  appearance Parquetry {
+    type "dark strip"
+  }
+}
+Robot {
+  translation 0.01 1.84349e-14 -1.1131e-06
+  rotation 0.849638823445524 0.5273650250954953 -3.648417724345589e-07 2.2599473685084693e-06
+  children [
+    DEF Y_Minus SliderJoint {
+      jointParameters JointParameters {
+        axis 0 -1 0
+      }
+      device [
+        LinearMotor {
+          name "Slider_y_minus"
+          maxPosition 0.034
+        }
+      ]
+      endPoint Solid {
+        children [
+          DEF Pusher_y_minus_collision Pose {
+            translation 0.02 0.0016 0.02
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.784314 0 0.0117647
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.029 0.003 0.029
+                }
+              }
+            ]
+          }
+          DEF Pusher_y_minus Shape {
+            appearance PBRAppearance {
+              baseColor 0.784314 0 0.0117647
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../meshes/STL/pushers/y/Pusher_y_plus.stl"
+              ]
+            }
+          }
+        ]
+        name "solid(5)"
+        boundingObject USE Pusher_y_minus_collision
+        physics Physics {
+          density -1
+          mass 0.002945
+          centerOfMass [
+            0.021453 0.003451 0.018477
+          ]
+          inertiaMatrix [
+            3.97255e-07 4.78174e-07 3.46188e-07
+            -4.5301e-08 2.849e-08 7.1953e-08
+          ]
+          damping Damping {
+          }
+        }
+      }
+    }
+    DEF Y_Plus SliderJoint {
+      jointParameters JointParameters {
+        axis 0 1 0
+      }
+      device [
+        LinearMotor {
+          name "Slider_y_plus"
+          maxPosition 0.034
+        }
+      ]
+      endPoint Solid {
+        children [
+          DEF Pusher_y_plus_collision Pose {
+            translation 0.02 0.0384 0.02
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.784314 0 0.0117647
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.029 0.003 0.029
+                }
+              }
+            ]
+          }
+          DEF Pusher_y_plus Shape {
+            appearance PBRAppearance {
+              baseColor 0.643137 0 0
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../meshes/STL/pushers/y/Pusher_y_minus.stl"
+              ]
+            }
+          }
+        ]
+        name "solid(4)"
+        boundingObject USE Pusher_y_plus_collision
+        physics Physics {
+          density -1
+          mass 0.002945
+          centerOfMass [
+            0.021127 0.036551 0.018479
+          ]
+          inertiaMatrix [
+            3.97344e-07 4.6665e-07 3.34596e-07
+            2.9263e-08 1.6916e-08 -7.1968e-08
+          ]
+          damping Damping {
+          }
+        }
+      }
+    }
+    DEF Z_Plus SliderJoint {
+      jointParameters JointParameters {
+        position 0.00028668091464486786
+      }
+      device [
+        LinearMotor {
+          name "Slider_z_plus"
+          maxPosition 0.034
+        }
+      ]
+      endPoint Solid {
+        children [
+          DEF Pusher_z_plus_collision Pose {
+            translation 0.02 0.02 0.0384
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0.462745 0.788235
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.029 0.029 0.003
+                }
+              }
+            ]
+          }
+          DEF Pusher_z_plus Shape {
+            appearance PBRAppearance {
+              baseColor 0 0.462745 0.788235
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../meshes/STL/pushers/z/Pusher_z_plus.stl"
+              ]
+            }
+          }
+        ]
+        name "solid(3)"
+        boundingObject USE Pusher_z_plus_collision
+        physics Physics {
+          density -1
+          mass 0.002945
+          centerOfMass [
+            0.021522 0.01888 0.036552
+          ]
+          inertiaMatrix [
+            3.34893e-07 3.97354e-07 4.66945e-07
+            1.688e-08 7.1963e-08 -2.9301e-08
+          ]
+        }
+      }
+    }
+    DEF Z_Minus SliderJoint {
+      jointParameters JointParameters {
+        position 2.8939506010800555e-08
+        axis 0 0 -1
+      }
+      device [
+        LinearMotor {
+          name "Slider_z_minus"
+          maxPosition 0.034
+        }
+      ]
+      endPoint Solid {
+        translation 0 0 -2.8939506010800555e-08
+        children [
+          DEF Pusher_z_minus_collision Pose {
+            translation 0.02 0.02 0.0016
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0 0.462745 0.788235
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.029 0.029 0.003
+                }
+              }
+            ]
+          }
+          DEF Pusher_z_minus Shape {
+            appearance PBRAppearance {
+              baseColor 0 0.462745 0.788235
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../meshes/STL/pushers/z/Pusher_z_minus.stl"
+              ]
+            }
+          }
+        ]
+        name "solid(2)"
+        boundingObject USE Pusher_z_minus_collision
+        physics Physics {
+          density -1
+          mass 0.00295
+          centerOfMass [
+            0.021523 0.018547 0.003451
+          ]
+          inertiaMatrix [
+            3.46188e-07 3.97255e-07 4.78174e-07
+            2.849e-08 -7.1953e-08 4.5301e-08
+          ]
+          damping Damping {
+          }
+        }
+      }
+    }
+    DEF X_Minus SliderJoint {
+      jointParameters JointParameters {
+        position 4.3228432546706205e-06
+        axis -1 0 0
+      }
+      device [
+        LinearMotor {
+          name "Slider_x_minus"
+          maxPosition 0.034
+        }
+      ]
+      endPoint Solid {
+        translation -4.3228432546706205e-06 0 0
+        children [
+          DEF Pusher_x_minus_collision Pose {
+            translation 0.0018 0.02 0.02
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.243137 0.470588 0.0509804
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.003 0.029 0.029
+                }
+              }
+            ]
+          }
+          DEF Pusher_x_minus Shape {
+            appearance PBRAppearance {
+              baseColor 0.243137 0.470588 0.0509804
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../meshes/STL/pushers/x/Pusher_x_minus.stl"
+              ]
+            }
+          }
+        ]
+        name "solid(1)"
+        boundingObject USE Pusher_x_minus_collision
+        physics Physics {
+          density -1
+          mass 0.002945
+          centerOfMass [
+            0.003449 0.018479 0.018873
+          ]
+          inertiaMatrix [
+            4.6665e-07 3.34596e-07 3.97344e-07
+            7.1968e-08 2.9263e-08 -1.6916e-08
+          ]
+          damping Damping {
+          }
+        }
+      }
+    }
+    DEF Base_Collision Pose {
+      translation 0.02 0.02 0.02
+      children [
+        Shape {
+          appearance PBRAppearance {
+            transparency 1
+          }
+          geometry Box {
+            size 0.04 0.04 0.04
+          }
+          castShadows FALSE
+        }
+      ]
+    }
+    DEF X_Plus SliderJoint {
+      jointParameters JointParameters {
+        position 8.437859191836775e-10
+        axis 1 0 0
+      }
+      device [
+        LinearMotor {
+          name "Slider_x_plus"
+          maxPosition 0.034
+        }
+      ]
+      endPoint Solid {
+        translation 8.437859191836775e-10 0 0
+        children [
+          DEF Pusher_x_plus_collision Pose {
+            translation 0.0383 0.02 0.02
+            children [
+              Shape {
+                appearance PBRAppearance {
+                  baseColor 0.243137 0.470588 0.0509804
+                  roughness 1
+                  metalness 0
+                }
+                geometry Box {
+                  size 0.003 0.029 0.029
+                }
+              }
+            ]
+          }
+          DEF Pusher_x_plus Shape {
+            appearance PBRAppearance {
+              baseColor 0.243137 0.470588 0.0509804
+              roughness 1
+              metalness 0
+            }
+            geometry Mesh {
+              url [
+                "../meshes/STL/pushers/x/Pusher_x_plus.stl"
+              ]
+            }
+          }
+        ]
+        boundingObject USE Pusher_x_plus_collision
+        physics Physics {
+          density -1
+          mass 0.002945
+          centerOfMass [
+            0.036802 0.018784 0.019176
+          ]
+          inertiaMatrix [
+            4.78271e-07 3.46341e-07 3.97204e-07
+            -7.1937e-08 -4.5321e-08 -2.8371e-08
+          ]
+          damping Damping {
+          }
+        }
+      }
+    }
+    DEF Base Shape {
+      appearance PBRAppearance {
+        roughness 1
+        metalness 0
+      }
+      geometry Mesh {
+        url [
+          "../meshes/STL/base/Base.stl"
+        ]
+      }
+    }
+  ]
+  boundingObject USE Base_Collision
+  physics Physics {
+    density -1
+    mass 0.0106
+    centerOfMass [
+      0.02 0.02 0.02
+    ]
+    inertiaMatrix [
+      5.0527e-06 5.0527e-06 5.0527e-06
+      -1.866e-14 0 0
+    ]
+    damping Damping {
+    }
+  }
+  controller "pusher_controller_v2"
+}

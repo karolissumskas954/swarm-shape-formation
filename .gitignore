@@ -1,0 +1,16 @@
+# Ignore log files
+*.log
+
+# Ignore temporary files
+*.tmp
+*.jpg
+*.wbproj
+
+# Ignore directory
+libraries/
+meshes/
+plugins/
+
+# Ignore sensitive information
+config.ini
+
